@@ -29,4 +29,5 @@ def count_1s(num:int):
 
 
 
-#print(get_binary_repr(13))
+if __name__ == "__main__":
+    print(get_binary_repr(13))

@@ -10,31 +10,38 @@ from binarytree import Node
 
 from typing import Optional
 class Solution:
-    def flatten(self, root: Optional[TreeNode]) -> None:
+    def flatten(self, root: Optional[TreeNode]) -> None :
         """
         Do not return anything, modify root in-place instead.
         """
         if not root:
             return None
-        left = root.left
-        right = root.right
 
-        root.left = None
-        root.right = None
+        def flattenSubTree(root):
+            if not root:
+                return None
 
-        if left:
-            root.right = self.flatten(left)
+            left = root.left
+            right = root.right
 
-        if root.right:
-            last_right = root.right
-            while last_right.right is not None:
-                last_right.right = last_right.right.right
+            root.left = None
+            root.right = None
 
-            last_right.right = self.flatten(right)
-        else:
-            root.right = self.flatten(right)
+            if left:
+                root.right = flattenSubTree(left)
 
-        return root
+            if root.right:
+                last_right = root.right
+                while last_right.right is not None:
+                    last_right = last_right.right
+
+                last_right.right = flattenSubTree(right)
+            else:
+                root.right = flattenSubTree(right)
+
+            return root
+
+        root = flattenSubTree(root)
 
 
 

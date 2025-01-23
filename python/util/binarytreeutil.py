@@ -18,6 +18,8 @@ class TreeNode():
             if i>=len(l):
                 return None
 
+            if l[i] is None:
+                return
             root = TreeNode(l[i])
             leftIndex = (i*2) + 1
             rightIndex = (i*2) + 2
@@ -45,6 +47,13 @@ class TreeNode():
 
 if __name__ == "__main__":
     root = TreeNode.makeCompleteTreeFromPreOrder([1,2,3,4,5,6,7])
+    print(root.val)
+
+    prettyTree = TreeNode.makePrettyTree(root)
+
+    prettyTree.pprint()
+
+    root = TreeNode.makeCompleteTreeFromPreOrder([1,2,3,4,5,6,7,8,9,None,None,12,13])
     print(root.val)
 
     prettyTree = TreeNode.makePrettyTree(root)

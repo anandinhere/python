@@ -1,4 +1,6 @@
 
+
+from util.binarytreeutil import TreeNode
 nums = [ i for i in range(0,10)]
 
 
@@ -43,9 +45,40 @@ def make_tree(in_start, in_end, r_start, nums,s_tree) -> int:
     return s_tree[r_start]
 
 
+#get sum of subtrees
+def get_sum(range_start, range_end, nums_start, nums_end, r_start, nums, s_tree) -> int:
+
+    if range_start == nums_start and range_end == nums_end:
+        return s_tree[r_start]
+
+
+    r_mid = (r_start * 2) + 1
+    nums_mid = (nums_start + nums_end) // 2
+
+
+
+
+    if range_start <= nums_mid and nums_mid < range_end:
+        return get_sum(range_start, nums_mid, nums_start, nums_mid, r_mid, nums, s_tree) + \
+               get_sum(nums_mid + 1, range_end, nums_mid + 1, nums_end, r_mid + 1, nums, s_tree)
+    elif range_end <= nums_mid: #because im considering nums mid
+        return get_sum(range_start, range_end, nums_start, nums_mid, r_mid, nums, s_tree)
+    else:
+        return get_sum(range_start, range_end, nums_mid + 1, nums_end, r_mid + 1, nums, s_tree)
+
+
 
 make_tree(0,len(nums)-1, 0,nums,s_tree)
 print(s_tree)
 
+root = TreeNode.makeCompleteTreeFromPreOrder(s_tree)
+
+prettyTree = TreeNode.makePrettyTree(root)
+
+prettyTree.pprint()
 #[45, 10, 35, 3, 7, 18, 17, 1, 2, 3, 4, 11, 7, 8, 9, 0, 1, 0, 0, 0, 0, 0, 0, 5, 6, 0, 0, 0, 0, 0, 0, 0]
 #[45, 10, 35, 3, 7, 18, 17, 1, 2, 3, 4, 11, 7, 8, 9, 0, 1, 0, 0, 0, 0, 0, 0, 5, 6, 0, 0, 0, 0, 0, 0]
+
+range_sum =  get_sum(0,6,0,len(nums)-1, 0,nums,s_tree)
+print(range_sum)
+

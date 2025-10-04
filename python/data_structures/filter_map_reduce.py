@@ -2,10 +2,10 @@ from functools import reduce
 
 l = [i for i in range(10)]
 
-f = filter(lambda x:x==0,l)
+f = filter(lambda x:x==0,l) #returns iterator
 print(list(f))
 
-m = map(lambda x:x/2,l)
+m = map(lambda x:x/2,l) #returns iterator
 print(list(m))
 
 r = reduce(lambda x,y:x+y,l)

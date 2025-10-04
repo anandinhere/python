@@ -1,21 +1,98 @@
-'''
+print(f'''
 
 Python has a set of built-in methods that you can use on dictionaries.
 
 Method	Description
 clear()	Removes all the elements from the dictionary
 copy()	Returns a copy of the dictionary
-fromkeys()	Returns a dictionary with the specified keys and value
+        1. Shallow Copy using dict.copy():
+        The copy() method creates a new dictionary that contains the same key-value pairs as the original. 
+        However, if the dictionary contains mutable objects (like lists or other dictionaries) as values, 
+        these nested objects are still references to the same objects in memory. 
+        Modifying a nested mutable object in the copy will also affect the original.
+
+2. Deep Copy using copy.deepcopy():
+        For a completely independent copy, including all nested mutable objects, 
+        the deepcopy() function from the copy module should be used. 
+        This creates new copies of all objects, ensuring that changes 
+        to the deep copy do not affect the original dictionary or any of its nested structures.
+        Python
+        
+        import copy
+        
+        original_dict = {{'a': 1, 'b': [2, 3]}}
+        deep_copy_dict = copy.deepcopy(original_dict)
+        
+        deep_copy_dict['a'] = 100
+        deep_copy_dict['b'].append(4)
+        
+        print(original_dict)  # Output: {{'a': 1, 'b': [2, 3]}}
+        print(deep_copy_dict) # Output: {{'a': 100, 'b': [2, 3, 4]}}
+
+fromkeys()	Create a dictionary with keys from an iterable and a default value
 get()	Returns the value of the specified key
 items()	Returns a list containing a tuple for each key value pair
 keys()	Returns a list containing the dictionary's keys
 pop()	Removes the element with the specified key
 popitem()	Removes the last inserted key-value pair
-setdefault()	Returns the value of the specified key. If the key does not exist: insert the key, with the specified value
-update()	Updates the dictionary with the specified key-value pairs
+setdefault()	Returns the value of the specified key. 
+                If the key does not exist: insert the key, with the specified value
+update()	Updates the dictionary with the specified key-value pairs, Merge two dictionaries using update()
 values()	Returns a list of all the values in the dictionary
 
-'''
+
+enumerate() and .items() are two different tools in Python, and they are often used together when iterating over a dictionary. The choice between using them separately or combined depends on whether you need a loop counter or just the key-value pairs. 
+dict.items()
+The .items() method is the standard and most Pythonic way to iterate over a dictionary to access both its keys and values. 
+Returns: A "view object" that displays a list of the dictionary's (key, value) tuples.
+Best for: When you only need access to the key and value of each item and do not need a numeric index for the iteration. 
+Example
+python
+my_dict = {{"apple": 1, "banana": 2, "cherry": 3}}
+
+for key, value in my_dict.items():
+    print(f"Key: {{key}}, Value: {{value}}")
+
+# Output:
+# Key: apple, Value: 1
+# Key: banana, Value: 2
+# Key: cherry, Value: 3
+Use code with caution.
+
+enumerate()
+The built-in enumerate() function adds a counter to any iterable, including lists, tuples, or even a dictionary. By default, it returns a sequence of (index, item) tuples. 
+Behavior with a dictionary: When used directly on a dictionary, enumerate() iterates only over the dictionary's keys and provides an index for each key. This is generally not the intended behavior if you want the values as well.
+Best for: When you need a numeric index in addition to iterating over the items of an iterable. 
+Example (with a dictionary)
+python
+my_dict = {{"apple": 1, "banana": 2, "cherry": 3/}}
+
+for index, key in enumerate(my_dict):
+    print(f"Index: {{index}},Key: {{key}}")
+
+# Output:
+# Index: 0, Key: apple
+# Index: 1, Key: banana
+# Index: 2, Key: cherry
+Use code with caution.
+
+Combining enumerate() and .items()
+To get an index along with both the key and the value, you can pass the results of my_dict.items() into the enumerate() function. This is a common and powerful pattern for iterating over dictionaries. 
+Returns: A sequence of (index, (key, value)) tuples, which can be unpacked in the loop.
+Best for: When you need a loop counter in addition to the key-value pairs. 
+Example
+python
+my_dict = {{"apple": 1, "banana": 2, "cherry": 3/}}
+
+for index, (key, value) in enumerate(my_dict.items()):
+    print(f"Index: {{index}}, Key: {{key}}, Value: {{value}}")
+
+# Output:
+# Index: 0, Key: apple, Value: 1
+# Index: 1, Key: banana, Value: 2
+# Index: 2, Key: cherry, Value: 3
+
+''')
 
 
 print(f'''
@@ -106,6 +183,9 @@ Example: length = len(my_dict) → length is the count of pairs
 
 10. Getting Keys: Get all keys using keys()
 Example: keys = my_dict.keys() → keys is a view of all keys
+   Dynamically updated
+If you modify the original dictionary, the view object will automatically reflect the change. 
+A list created from the keys will not. 
 
 11. Getting Values: Get all values using values()
 Example: values = my_dict.values() → values is a view of all values

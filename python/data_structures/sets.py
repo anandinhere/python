@@ -224,3 +224,6 @@ print(set1)
 set2 = {x*x for x in range(10)}
 print(set2)
 
+
+print(set('cbacdcbc'))
+print(len(set('cbacdcbc')))

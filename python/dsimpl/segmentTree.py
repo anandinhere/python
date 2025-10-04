@@ -58,7 +58,7 @@ def get_sum(range_start, range_end, nums_start, nums_end, r_start, nums, s_tree)
 
 
 
-    if range_start <= nums_mid and nums_mid < range_end:
+    if range_start <= nums_mid and nums_mid < range_end: #first call for range_start <= nums_mid 2nd call for nums_mid < range_end
         return get_sum(range_start, nums_mid, nums_start, nums_mid, r_mid, nums, s_tree) + \
                get_sum(nums_mid + 1, range_end, nums_mid + 1, nums_end, r_mid + 1, nums, s_tree)
     elif range_end <= nums_mid: #because im considering nums mid

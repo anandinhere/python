@@ -62,6 +62,15 @@ if __name__ == "__main__":
 
 
 
+    root = TreeNode.makeCompleteTreeFromPreOrder([45, 10, 35, 3, 7, 18, 17, 1, 2, 3, 4, 11, 7, 8, 9, 0, 1, 0, 0, 0, 0, 0, 0, 5, 6, 0, 0, 0, 0, 0, 0])
+    print(root.val)
+
+    prettyTree = TreeNode.makePrettyTree(root)
+
+    prettyTree.pprint()
+
+
+
 '''
  0 1 2 3
  pivot 1

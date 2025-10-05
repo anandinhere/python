@@ -144,7 +144,7 @@ Example 2: diff_set = my_set — {{5, 10}} → same result
 Union (s | t) | O(len(s) + len(t)) | Iterates through all elements in both sets.
 Intersection (s & t) | O(min(len(s), len(t))) | Iterates through the smaller set, checking for membership in the larger set.
 Difference (s - t) | O(len(s)) | Iterates through elements in s, checking if they're not in t.
-Symmetric Difference (s ^ t) | O(len(s) + len(t)) | Equivalent to (s - t) | (t - s). 
+Symmetric Difference (s ^ t) | O(len(s) + len(t)) | Equivalent to (s - t) | (t - s). Remember "symmetric"
 
 
 ''')
@@ -185,8 +185,22 @@ Example: my_set.difference_update({1}) → my_set becomes set()
 Example: my_set.symmetric_difference_update({2, 3}) → my_set becomes {2, 3}
 ''')
 
-set1 = {1,2,3}
-set2 = {2,3,4}
+print(f'''set1 = {{1,2,3}}
+set2 = {{2,3,4}}
+print(set1.symmetric_difference(set2))
+set1.intersection_update(set2)
+print(set1)
+set1 = {{1,2,3}}
+set2 = {{2,3,4}}
+set1.difference_update(set2)
+print(set1)
+
+set1 = {{1,2,3}}
+set2 = {{2,3,4}}
+set1.symmetric_difference_update(set2)
+print(set1)
+
+''')
 
 print(set1.symmetric_difference(set2))
 

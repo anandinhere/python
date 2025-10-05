@@ -1,25 +1,25 @@
 import heapq
 
 
-heape = []
+heap_q = []
 
-heapq.heappush(heape,3)
+heapq.heappush(heap_q, 3)
 
-heapq.heappush(heape,2)
+heapq.heappush(heap_q, 2)
 
-heapq.heappush(heape,1)
+heapq.heappush(heap_q, 1)
 
 
-print(len(heape))
+print(len(heap_q))
 
-print(heapq.heappop(heape))
-print(heapq.heappop(heape))
-print(heapq.heappop(heape))
+print(heapq.heappop(heap_q))
+print(heapq.heappop(heap_q))
+print(heapq.heappop(heap_q))
 
-print(len(heape))
+print(len(heap_q))
 
-if len(heape)>0:
-    print(heapq.heappop(heape))
+if len(heap_q)>0:
+    print(heapq.heappop(heap_q))
 
 
 

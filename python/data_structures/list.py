@@ -1,5 +1,5 @@
 
-'''
+print(f'''
 
 Python has a set of built-in methods that you can use on lists/arrays.
 
@@ -16,7 +16,7 @@ remove()	Removes the first item with the specified value
 reverse()	Reverses the order of the list
 sort()	Sorts the list
 
-'''
+''')
 
 print('\n#create a list fruits = [\'apple','banana','cherry\']')
 fruits = ['apple','banana','cherry']
@@ -24,7 +24,7 @@ fruits = ['apple','banana','cherry']
 print('\n#empty list empty = []')
 empty = []
 
-print('\n#create a list from a iterable ')
+print(f'''\n#create a list from a iterable list_from_s = list('string')''')
 
 list_from_s = list('string')
 

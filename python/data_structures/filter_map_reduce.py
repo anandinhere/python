@@ -1,6 +1,7 @@
 from functools import reduce
 
 l = [i for i in range(10)]
+print(l)
 
 f = filter(lambda x:x==0,l) #returns iterator
 print(list(f))

@@ -25,8 +25,8 @@ Good to Know String Functions
 Function	Description
 encode()	Python string encode() function is used to encode the string using the provided encoding.
 count()	Python String count() function returns the number of occurrences of a substring in the given string.
-startswith()	Python string startswith() function returns True if the string starts with the given prefix, otherwise it returns False.
-endswith()	Python string endswith() function returns True if the string ends with the given suffix, otherwise it returns False.
+startswith()	Python string startswith() function returns True if the string starts with the given prefix,                        otherwise it returns False.
+endswith()	Python string endswith() function returns True if the string ends with the given suffix, otherwise it           returns False.
 capitalize()	Python String capitalize() function returns the capitalized version of the string.
 center()	Python string center() function returns a centered string of specified size.
 casefold()	Python string casefold() function returns a casefolded copy of the string. This function is used to perform case-insensitive string comparison.

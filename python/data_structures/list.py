@@ -1,6 +1,8 @@
 
 print(f'''
 
+index , count, append, pop, reverse
+
 Python has a set of built-in methods that you can use on lists/arrays.
 
 Method	Description

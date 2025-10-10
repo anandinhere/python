@@ -1,6 +1,11 @@
 print(f'''
 
+enumerate(my_dict.items())
+
 Python has a set of built-in methods that you can use on dictionaries.
+
+Python dictionaries do not have a remove() method like lists do. Instead, there are several ways to remove items (key-value pairs) from a dictionary:
+
 
 Method	Description
 clear()	Removes all the elements from the dictionary

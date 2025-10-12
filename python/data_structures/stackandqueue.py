@@ -1,6 +1,6 @@
 from collections import deque
 
-print('stack-append,pop \nqueue-append,popleft')
+print('stack-append,pop \nqueue-append,pop')
 
 ss = deque()
 
@@ -16,6 +16,8 @@ print(f'ss.append(2)')
 ss.append(2)
 print(f's: {ss}')
 print(f'len: {len(ss)}')
+
+print(ss[-1])
 
 print(f's: {ss}')
 print(f'ss.pop()')

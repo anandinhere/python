@@ -152,8 +152,8 @@ class NWaySetAssociateCache:
 
 
 if __name__ == '__main__':
-    no_sets = 2
-    no_ways = 2
+    no_sets = 1
+    no_ways = 3
     no_threads = 1
     replacement_policy = 'LRU'
 

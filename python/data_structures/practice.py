@@ -23,3 +23,8 @@ str_list = ' '.join(map(str, my_list))
 print(str_tuple)
 print(str_list)
 
+
+l1 = [ 'a' , 'b' , 'c']
+
+print( l1 + ['d'])
+

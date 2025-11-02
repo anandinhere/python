@@ -79,8 +79,8 @@ Example: paired = tuple(zip([1, 2], [‘a’, ‘b’])) → paired is ((1, ‘a
 
 ''')
 
-l1 = [1,2]
-l2 = [3,4]
+l1 = [1,2,3,4]
+l2 = [3,4,5,6]
 
 paired_tuple = tuple(zip(l1,l2))
 print(paired_tuple)

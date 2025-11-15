@@ -97,7 +97,14 @@ for r in range(len(chart)):
     print(chart[r])
 
 
+# we do one row at a time -  value that changes is inside, value that doesn't change is outside
+
+
 transpose_matrix = [[str(j) + ',' + str(i) for i in range(len(chart))] for j in range(len(chart[0]))]
+print(f"\ntranspose_matrix")
+for r in range(len(transpose_matrix)):
+    print(transpose_matrix[r])
+transpose_matrix = [[chart[i][j] for i in range(len(chart))] for j in range(len(chart[0]))]
 print(f"\ntranspose_matrix")
 for r in range(len(transpose_matrix)):
     print(transpose_matrix[r])

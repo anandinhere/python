@@ -1,23 +1,126 @@
 
 
-'''
+print(f'''
 
 https://www.digitalocean.com/community/tutorials/python-string-functions#python-string-functions
 
 
-Must Know String Functions
-
-Function	Description
 format()	It’s used to create a formatted string from the template string and the supplied values.
-split()	Python string split() function is used to split a string into the list of strings based on a delimiter.
-join()	This function returns a new string that is the concatenation of the strings in iterable with string object as a delimiter.
-strip()	Used to trim whitespaces from the string object.
-format_map()	Python string format_map() function returns a formatted version of the string using substitutions from the mapping provided.
+s = 'testString {{}} {{}}'
+print(s.format('hi','hello'))
+''')
+
+
+
+s = 'testString {} {}'
+
+
+print(s.format('hi','hello'))
+
+
+
+print(f'''
+s = 'Nov 7 2025 9:35:000'
+split_date = s.split(sep=' ',maxsplit=4)
+split_time = split_date[3].split(sep=':')
+        ''')
+
+s = 'Nov 7 2025 9:35:000'
+
+split_date = s.split(sep=' ',maxsplit=4)
+split_time = split_date[3].split(sep=':')
+print(f'split_date {split_date} \nsplit time {split_time}')
+
+
+print(f"join()	This function returns a new string that is the concatenation of the strings in iterable with string object as a delimiter.")
+s= ['Nov' , '7' , '2025']
+s_join = '-_-'.join(s)
+print(f'''
+s= ['Nov' , '7' , '2025']
+s_join = '-_-'.join(s)
+''')
+print(s_join)
+
+
+print(f'''strip()	Used to trim whitespaces from the string object.
+        s = '   hi    '
+        print(s.strip())''')
+
+s = '   hi    '
+print(s.strip())
+
+
+s = '1 {one} 2 {two} 345'
+m = { 'one' : 'a', 'two': 'b', '3': 'c', '4':'d', '5' : 'e'}
+print(f'''format_map()	Python string format_map() function returns a formatted version of the string using substitutions from the mapping provided.
+        s = '12345'
+        m = {{ '1' : 'a', '2': 'b', '3': 'c', '4':'d', '5' : 'e'}}
+        print(s.format_map(m)
+
+person_data = {{'name': 'Alice', 'age': 30}}
+formatted_string = "Name: {{name}}, Age: {{age}}.".format_map(person_data)
+print(formatted_string) ''')
+
+print(s.format_map(m))
+
+
+person_data = {'name': 'Alice', 'age': 30}
+formatted_string = "Name: {name}, Age: {age}.".format_map(person_data)
+print(formatted_string)
+
+
+
+print(f'''
+    replace()	Python string replace() function is used to create a new string by replacing some parts of another string.
+    s = 'one two three one twp four five six five'
+    print(s.replace('one' , 'ten', 2))
+        ''')
+
+s = 'one two three one twp four five six five'
+print(s.replace('one' , 'ten', 2))
+
+
+print(f'''
+    find()	Python String find() method is used to find the index of a substring in a string.
+    s = 'one two three one two four five six five'
+    print(s.find('three',0,20)))
+
+    index()	Python String index() function returns the lowest index where the specified substring is found.
+    In Python, the str.index() and str.find() methods are used to locate the position of a substring within a 
+    string, and in many cases, they return the same result. However, their behavior when the substring is not found is the key difference: 
+
+
+        ''')
+s = 'one two three one two four five six five'
+print(s.find('three',0,20))
+
+
+print(f'''
+    translate()	Python String translate() function returns a new string with each character 
+    in the string replaced using the given translation table.
+
+    s = 'abcde'
+    translation_table = str.maketrans('ab', '12')
+    print(translation_table)
+    print(s.translate(translation_table))
+    ''')
+
+s = 'abcde'
+translation_table = str.maketrans('ab', '12')
+print(translation_table)
+print(s.translate(translation_table))
+
+
+all_functions = r'''
+
+
+
+
+
+
+
 upper()	We can convert a string to uppercase in Python using str.upper() function.
 lower()	This function creates a new string in lowercase.
-replace()	Python string replace() function is used to create a new string by replacing some parts of another string.
-find()	Python String find() method is used to find the index of a substring in a string.
-translate()	Python String translate() function returns a new string with each character in the string replaced using the given translation table.
 
 
 Good to Know String Functions
@@ -31,11 +134,16 @@ capitalize()	Python String capitalize() function returns the capitalized version
 center()	Python string center() function returns a centered string of specified size.
 casefold()	Python string casefold() function returns a casefolded copy of the string. This function is used to perform case-insensitive string comparison.
 expandtabs()	Python string expandtabs() function returns a new string with tab characters (\t) replaced with one or more whitespaces.
-index()	Python String index() function returns the lowest index where the specified substring is found.
 __contains__()	Python String class has __contains__() function that we can use to check if it contains another string or not. We can also use “in” operator to perform this check.
 
 
 Miscellaneous String Functions
+
+
+str.isdigit() and str.isnumeric()
+ both check if a string contains only numeric characters, but 
+ isnumeric() is more inclusive of various Unicode number representations. 
+
 
 Function	Description
 isalnum()	Python string isalnum() function returns True if it’s made of alphanumeric characters only.
@@ -122,11 +230,56 @@ translate()	Modify string according to given translation mappings
 upper()	Converts all lowercase characters in a string into uppercase
 zfill()	Returns a copy of the string with ‘0’ characters padded to the left side of the string
 
+
+Examples
+str.partition()
+python
+data = "name:John Doe:manager"
+
+# Partition splits exactly once, returning a 3-tuple
+# (before, separator, after)
+left, sep, right = data.partition(':')
+
+print(f"Left: '{left}'")
+print(f"Separator: '{sep}'")
+print(f"Right: '{right}'")
+
+# Output:
+# Left: 'name'
+# Separator: ':'
+# Right: 'John Doe:manager'
+Use code with caution.
+
+str.split()
+python
+data = "red-green-blue-yellow"
+
+# Split by all occurrences of the hyphen
+colors = data.split('-')
+
+print(f"Colors: {colors}")
+
+# Output:
+# Colors: ['red', 'green', 'blue', 'yellow']
+Use code with caution.
+
+You can make split() behave more like partition() (in terms of splitting only once) by using the maxsplit=1 argument, but the return type and separator handling remain different. 
+python
+data = "name:John Doe:manager"
+
+# Split only at the first occurrence (but discards the separator)
+parts = data.split(':', maxsplit=1)
+
+print(f"Parts: {parts}")
+# Output:
+# Parts: ['name', 'John Doe:manager']
+Use code with caution.
+
 '''
 
-word = 'coding'
-
-for i,c in enumerate(word):
-    print(f'''{i} - {c}''')
-
-print(f'''word.capitalize(), Converts the first character of the string to a capital (uppercase) letter \n {word.capitalize()}''')
+# word = 'coding'
+#
+# for i,c in enumerate(word):
+#     print(f'''{i} - {c}''')
+#
+# print(f'''word.capitalize(), Converts the first character of the string to a capital (uppercase) letter \n {word.capitalize()}''')

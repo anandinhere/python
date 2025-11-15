@@ -63,8 +63,8 @@ col_no = len(matrix[0])-1
 row_s = 1
 row_e = len(matrix) - 1
 
-row_c = len(matrix)
-col_c = len(matrix[0])
+# row_c = len(matrix)
+# col_c = len(matrix[0])
 
 print(f"matrix")
 for r in range(len(matrix)):
